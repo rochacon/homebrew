@@ -25,7 +25,7 @@ class JujuCore < Formula
   end
 
   def caveats
-    "You may run \"juju generate-config\" to setup your Juju environments config at ~/.juju/environments.yaml."
+    "You may run \"juju generate-config -w\" to setup a demo Juju environments config at ~/.juju/environments.yaml."
   end
 
   def test
