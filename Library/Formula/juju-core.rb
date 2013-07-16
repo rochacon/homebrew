@@ -10,7 +10,7 @@ class JujuCore < Formula
   depends_on 'go' => :build
 
   def install
-    # set GOPATH to current working directory 
+    # set GOPATH to current working directory
     ENV['GOPATH']=Dir.pwd
 
     # fixup the tarball, this is fixed in 1.11.3
@@ -19,7 +19,7 @@ class JujuCore < Formula
     system "mv", "labix.org", "src"
     system "mv", "launchpad.net", "src"
     system "mv", "github.com", "src"
-    
+
     system "go", "install", "launchpad.net/juju-core/cmd/juju"
     prefix.install(Dir['bin'])
   end
