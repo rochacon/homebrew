@@ -24,4 +24,7 @@ class JujuCore < Formula
     prefix.install(Dir['bin'])
   end
 
+  def test
+    system "#{bin}/juju", "version"
+  end
 end
