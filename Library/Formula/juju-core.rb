@@ -24,6 +24,10 @@ class JujuCore < Formula
     prefix.install(Dir['bin'])
   end
 
+  def caveats
+    "You may run \"juju generate-config\" to setup your Juju environments config at ~/.juju/environments.yaml."
+  end
+
   def test
     system "#{bin}/juju", "version"
   end
