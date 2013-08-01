@@ -4,7 +4,7 @@ BUILD="1"
 SERIES="1.12"
 VERSION="1.12.0"
 
-class JujuCore < Formula
+class Juju < Formula
   homepage 'https://launchpad.net/juju-core'
 
   version "#{VERSION}-#{BUILD}"
