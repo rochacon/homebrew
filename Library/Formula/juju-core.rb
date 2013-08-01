@@ -1,24 +1,21 @@
 require 'formula'
 
-VERSION='1.11.2'
+BUILD="1"
+SERIES="1.12"
+VERSION="1.12.0"
 
 class JujuCore < Formula
   homepage 'https://launchpad.net/juju-core'
-  url "https://launchpad.net/juju-core/trunk/#{VERSION}/+download/juju-core_#{VERSION}.tar.gz"
-  sha1 'd9579c3449711f24d3cd2ce251f1154bbfe490b9'
+
+  version "#{VERSION}-#{BUILD}"
+  url "https://launchpad.net/juju-core/#{SERIES}/#{VERSION}/+download/juju-core_#{VERSION}-#{BUILD}.tar.gz"
+  sha1 "b552919f5f4ed5a34885a2a6a8a4a0d7be485267"
 
   depends_on 'go' => :build
 
   def install
     # set GOPATH to current working directory
     ENV['GOPATH']=Dir.pwd
-
-    # fixup the tarball, this is fixed in 1.11.3
-    system "mkdir", "-p", "src"
-    system "mv", "code.google.com", "src"
-    system "mv", "labix.org", "src"
-    system "mv", "launchpad.net", "src"
-    system "mv", "github.com", "src"
 
     system "go", "install", "launchpad.net/juju-core/cmd/juju"
     prefix.install(Dir['bin'])
